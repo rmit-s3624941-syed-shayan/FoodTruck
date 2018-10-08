@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    android:orientation="vertical"
+    android:background="@drawable/customborder"
+    android:id="@+id/trackingdetailObj">
+
+    <TextView
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1:00:00 PM" />
+
+    <TextView
+        android:id="@+id/stoptime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="10 min" />
+
+    <TextView
+        android:id="@+id/latitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-37.8479"
+        android:textStyle="bold|italic" />
+
+    <TextView
+        android:id="@+id/longitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="144.9554"
+        android:textStyle="bold|italic" />
+</LinearLayout>

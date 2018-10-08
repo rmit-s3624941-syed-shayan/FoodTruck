@@ -1,0 +1,16 @@
+--
+-- File generated with SQLiteStudio v3.2.1 on Sun Oct 7 17:49:14 2018
+--
+-- Text encoding used: UTF-8
+--
+PRAGMA foreign_keys = off;
+BEGIN TRANSACTION;
+
+-- Table: TrackableDataModel
+CREATE TABLE TrackableDataModel (ID VARCHAR (20) PRIMARY KEY REFERENCES TrackingDetails (TrackableID), Title VARCHAR (20), Descripton VARCHAR (20), Link VARCHAR (20), Category VARCHAR (20));
+
+-- Table: TrackingDetails
+CREATE TABLE TrackingDetails (Date DATE (20), TrackableID VARCHAR (20) NOT NULL, StopTime INTEGER (10), Latitude VARCHAR (20), Longitude VARCHAR (20), Time TIME (10));
+
+COMMIT TRANSACTION;
+PRAGMA foreign_keys = on;

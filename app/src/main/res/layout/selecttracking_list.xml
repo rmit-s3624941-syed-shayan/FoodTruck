@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="4dp"
+    android:orientation="vertical"
+    android:background="@drawable/customborder"
+    android:id="@+id/selecttrackingObj">
+
+    <TextView
+        android:id="@+id/addtrackableTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Curry Truck" />
+
+    <TextView
+        android:id="@+id/addtrackablecategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Asian"/>
+
+    <TextView
+        android:id="@+id/addtrackabletime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1:00:00 PM" />
+
+    <TextView
+        android:id="@+id/addtrackablestoptime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="10 min" />
+
+    <TextView
+        android:id="@+id/addtrackablelatitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="-37.8479"
+        android:textStyle="bold|italic" />
+
+    <TextView
+        android:id="@+id/addtrackablelongitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="144.9554"
+        android:textStyle="bold|italic" />
+</LinearLayout>

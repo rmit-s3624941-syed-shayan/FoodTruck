@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">MADA1</string>
+    <string name="title_activity_tracking_details">trackingDetails</string>
+    <string name="title_activity_maps">Map</string>
+</resources>
