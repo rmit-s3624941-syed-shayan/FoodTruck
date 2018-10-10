@@ -10,7 +10,6 @@ import android.widget.TextView;
 
 import Models.SelectedTrackingModel;
 import Models.TrackableDataModel;
-import Services.NotificationService;
 import Storage.MyTrackingStorage;
 
 public class EditTrackingActivity extends AppCompatActivity {
@@ -40,7 +39,6 @@ public class EditTrackingActivity extends AppCompatActivity {
         editStoptime.setText(String.valueOf (stm.getTrackingDetail().getStopTime()));
 
 
-        final NotificationService ns = new NotificationService(this);
 
         saveBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -49,7 +47,6 @@ public class EditTrackingActivity extends AppCompatActivity {
                         ,stm.getTrackable().getDescription(),stm.getTrackable().getLink(), editCategory.getText().toString());
                 SelectedTrackingModel editedTracking = new SelectedTrackingModel(tdm,stm.getTrackingDetail(),stm.getSelectionId());
 
-                ns.sendNotification(editedTracking);
                 MyTrackingStorage.editTracking(EditTrackingActivity.this,editedTracking);
                 Intent trackableIntent = new Intent(EditTrackingActivity.this, MainMenuActivity.class);
                 startActivity(trackableIntent);

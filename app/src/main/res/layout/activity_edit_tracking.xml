@@ -13,8 +13,8 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="16dp"
         android:layout_marginTop="5dp"
-        android:text="Edit Tracking"
-        android:textColor="#000000"
+        android:text="@string/edit_tracking"
+        android:textColor="@color/white"
         android:textSize="40sp"
         android:typeface="normal" />
 
@@ -22,7 +22,7 @@
         android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Title" />
+        android:text="@string/title" />
 
     <EditText
         android:layout_width="fill_parent"
@@ -35,7 +35,7 @@
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Category" />
+        android:text="@string/category" />
 
     <EditText
         android:layout_width="fill_parent"
@@ -66,6 +66,6 @@
         android:elevation="4dp"
         android:paddingLeft="70dp"
         android:paddingRight="70dp"
-        android:text="Save"
-        android:textColor="#fff" />
+        android:text="@string/save"
+        android:textColor="@color/black" />
 </LinearLayout>

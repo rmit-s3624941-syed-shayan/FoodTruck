@@ -20,7 +20,7 @@
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
         android:layout_alignParentBottom="true"
-        android:text="Main Menu"
+        android:text="@string/main_menu"
 
         />
 </RelativeLayout>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <PreferenceCategory android:title="Settings" >
+        <ListPreference
+            android:key="@string/suggestionFrequency"
+            android:title="Suggestion Frequency"
+            android:summary="Set Frequency of Suggestions"
+            android:entries="@array/updateFrequency"
+            android:entryValues="@array/updateFrequencyValues"
+            />
+
+        <ListPreference
+            android:key="@string/notificationPeriod"
+            android:title="Notification Period"
+            android:summary="Set Time for reminder before leaving"
+            android:entries="@array/updateFrequency"
+            android:entryValues="@array/updateFrequencyValues"
+            />
+    </PreferenceCategory>
+
+
+
+</PreferenceScreen>

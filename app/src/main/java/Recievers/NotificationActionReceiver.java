@@ -4,6 +4,8 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 
+import Scheduling.MyAlarmManager;
+
 public class NotificationActionReceiver extends BroadcastReceiver {
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -12,7 +14,7 @@ public class NotificationActionReceiver extends BroadcastReceiver {
             performAction1();
         }
         else if(action.equals("snooze")){
-            performAction2();
+            performAction2(context);
 
         }
         //This is used to close the notification tray
@@ -28,8 +30,9 @@ public class NotificationActionReceiver extends BroadcastReceiver {
 
     }
 
-    public void performAction2()
+    public void performAction2(Context ctx)
     {
         System.out.println("Action Snooze");
+        MyAlarmManager.snoozeAlarm(ctx);
     }
 }

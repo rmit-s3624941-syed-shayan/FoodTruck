@@ -8,18 +8,16 @@ import android.content.Intent;
 
 import com.tutelab.haseebpaul.mada1.R;
 
-import Models.SelectedTrackingModel;
 import Recievers.NotificationActionReceiver;
 
 public class NotificationService {
 
-    private static Context ctx;
 
-    public NotificationService(Context c) {
-        this.ctx = c;
+    public NotificationService() {
+
     }
 
-    public void sendNotification(SelectedTrackingModel obj)
+    public static void sendNotification(Context ctx)
     {
         Intent acceptIntent = new Intent(ctx, NotificationActionReceiver.class);
         acceptIntent.putExtra("action","accept");
@@ -30,9 +28,9 @@ public class NotificationService {
         PendingIntent pSnoozeIntent = PendingIntent.getBroadcast(ctx, 2 , snoozeIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 
         System.out.println("Inside Service");
-        String title = obj.getTrackable().getTitle();
+        String title = "Time to leave!";
         String body = "Trackable nearby";
-        String subject = obj.getTrackable().getTitle();
+        String subject = "Start Walking...";
         NotificationManager notif=(NotificationManager)ctx.getSystemService(Context.NOTIFICATION_SERVICE);
         Notification notify=new Notification.Builder
                 (ctx).setContentTitle(title).setContentText(body).

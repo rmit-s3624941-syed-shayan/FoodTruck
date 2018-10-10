@@ -2,10 +2,8 @@ package Adapters;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,13 +11,11 @@ import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.google.gson.Gson;
 import com.tutelab.haseebpaul.mada1.EditTrackingActivity;
 import com.tutelab.haseebpaul.mada1.MyTrackingsActivity;
 import com.tutelab.haseebpaul.mada1.R;
 
 import java.util.ArrayList;
-import java.util.Map;
 
 import Models.SelectedTrackingModel;
 import Storage.MyTrackingStorage;
@@ -44,14 +40,16 @@ public class MyTrackingsAdapter extends RecyclerView.Adapter<MyTrackingsAdapter.
     public void onBindViewHolder(@NonNull MyListViewHolder holder, int position) {
         final SelectedTrackingModel obj = allTrackings.get(position);
 
+        String traveltime = "Travel Time: " + (MyTrackingStorage.getTravelTimeforId(obj.getSelectionId())/60) + " mins";
+
         holder.title.setText(obj.getTrackable().getTitle());
         holder.category.setText(obj.getTrackable().getCategory());
         holder.time.setText(obj.getTrackingDetail().getDate().toString());
-        holder.stoptime.setText("Stoptime: "+String.valueOf(obj.getTrackingDetail().getStopTime()));
-        holder.latitude.setText(Double.toString(obj.getTrackingDetail().getLatitude()));
-        holder.longitude.setText(Double.toString(obj.getTrackingDetail().getLongitude()));
-        holder.meetupTime.setText("Meetup Time: "+obj.getMeetupTime());
-
+        holder.stoptime.setText(ctx.getString(R.string.stptime)+String.valueOf(obj.getTrackingDetail().getStopTime()));
+        holder.latitude.setText(String.valueOf(obj.getTrackingDetail().getLatitude()));
+        holder.longitude.setText(String.valueOf(obj.getTrackingDetail().getLongitude()));
+        holder.meetupTime.setText(ctx.getString(R.string.meetuptime)+obj.getMeetupTime());
+        holder.travelTime.setText(traveltime);
         holder.edittrackingObj.setOnClickListener(new View.OnClickListener() {
 
             public void onClick(View view)
@@ -86,7 +84,7 @@ public class MyTrackingsAdapter extends RecyclerView.Adapter<MyTrackingsAdapter.
 
     public class MyListViewHolder extends RecyclerView.ViewHolder {
 
-        TextView title,time, stoptime, latitude, longitude,category, meetupTime;
+        TextView title,time, stoptime, latitude, longitude,category, meetupTime, travelTime;
         LinearLayout edittrackingObj;
         Button removeBtn;
 
@@ -102,6 +100,7 @@ public class MyTrackingsAdapter extends RecyclerView.Adapter<MyTrackingsAdapter.
             category = itemView.findViewById(R.id.edittrackablecategory);
             removeBtn = itemView.findViewById(R.id.removebutton);
             meetupTime = itemView.findViewById(R.id.edittrackableMT);
+            travelTime = itemView.findViewById(R.id.edittrackableTravelTime);
 
         }
     }

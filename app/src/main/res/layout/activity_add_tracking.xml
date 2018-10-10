@@ -18,7 +18,7 @@
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="2dp"
-            android:text="No Time Selected"
+            android:text="@string/no_time_selected"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:gravity="center" />
 
@@ -29,7 +29,7 @@
             android:layout_below="@+id/selectedMeetupTime"
             android:layout_centerHorizontal="true"
             android:layout_marginTop="2dp"
-            android:text="Set Time" />
+            android:text="@string/set_time" />
 
 
 

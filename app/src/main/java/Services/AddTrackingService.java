@@ -6,7 +6,6 @@ import java.text.DateFormat;
 import java.text.ParseException;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import Models.SelectedTrackingModel;
 import Models.TrackableDataModel;
@@ -32,16 +31,15 @@ public class AddTrackingService {
         TrackingService trackingSvc = TrackingService.getSingletonInstance(ctx);
         this.trackings = trackingSvc.getAllTrackings();
 
-
     }
 
     public void updateTrackingService(Context ctx, int hourOfDay, int minute, String format) {
 
         DateFormat dateFormat = DateFormat.getDateTimeInstance(DateFormat.SHORT, DateFormat.MEDIUM);
 
-        String searchDate ="10/06/2018 "+ String.valueOf(hourOfDay) +":"+String.valueOf(minute)+":00 "+format;
+        String searchDate ="09/10/2018 "+ String.valueOf(hourOfDay) +":"+String.valueOf(minute)+":00 "+format;
 
-        int searchWindow = 5; // +/- 5 mins
+        int searchWindow = 10; // +/- 5 mins
         Date date = null;
         try {
             date = dateFormat.parse(searchDate);

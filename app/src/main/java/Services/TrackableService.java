@@ -2,22 +2,22 @@ package Services;
 
 import android.content.Context;
 
+import com.tutelab.haseebpaul.mada1.R;
+
 import java.util.ArrayList;
 import java.util.Scanner;
-
-import android.content.res.Resources;
-
-import com.tutelab.haseebpaul.mada1.R;
 
 import Models.TrackableDataModel;
 
 public class TrackableService {
-    private ArrayList<TrackableDataModel> trackableList;
+    private static ArrayList<TrackableDataModel> trackableList;
     private static Context context;
 
     public TrackableService(Context ctx) {
-        this.trackableList = new ArrayList<>();
-        this.context = ctx;
+        trackableList = new ArrayList<>();
+        context = ctx;
+
+        parseFile(context);
     }
 
     public ArrayList<TrackableDataModel> parseFile(Context context) {
@@ -28,8 +28,7 @@ public class TrackableService {
             // match comma and 0 or more whitespace OR trailing space and newline
             scanner.useDelimiter(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)|\\n+");//(",|[\"]|\\n+");
 
-            while (scanner.hasNext())
-            {
+            while (scanner.hasNext()) {
 
 
                 int id = Integer.parseInt(scanner.next());
@@ -47,9 +46,22 @@ public class TrackableService {
 
             return trackableList;
         }
-
-
-
-
     }
+        public static TrackableDataModel getTrackablebyId(int id)
+        {
+
+            for (TrackableDataModel t:trackableList
+                 ) {
+                if(t.getId() == id)
+                    return t;
+
+            }
+
+            return null;
+        }
+
+
+
+
+
 }

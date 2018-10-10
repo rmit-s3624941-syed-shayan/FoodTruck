@@ -1,22 +1,18 @@
 package com.tutelab.haseebpaul.mada1;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.widget.LinearLayout;
 
 import java.util.ArrayList;
-import java.util.Date;
 
 import Adapters.TrackingDetailAdapter;
 import Models.TrackingDetailModel;
-import Services.TrackableService;
 import Services.TrackingService;
-
-import static java.util.Calendar.PM;
 
 public class trackingDetailsActivity extends AppCompatActivity {
 

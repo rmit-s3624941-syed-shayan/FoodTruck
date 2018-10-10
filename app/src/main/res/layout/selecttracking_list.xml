@@ -11,37 +11,37 @@
         android:id="@+id/addtrackableTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Curry Truck" />
+        android:text="@string/curry_truck" />
 
     <TextView
         android:id="@+id/addtrackablecategory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Asian"/>
+        android:text="@string/asian"/>
 
     <TextView
         android:id="@+id/addtrackabletime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="1:00:00 PM" />
+        android:text="@string/_1_00_00_pm" />
 
     <TextView
         android:id="@+id/addtrackablestoptime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="10 min" />
+        android:text="@string/_10_min" />
 
     <TextView
         android:id="@+id/addtrackablelatitude"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="-37.8479"
+        android:text="@string/_37_8479"
         android:textStyle="bold|italic" />
 
     <TextView
         android:id="@+id/addtrackablelongitude"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="144.9554"
+        android:text="@string/_144_9554"
         android:textStyle="bold|italic" />
 </LinearLayout>

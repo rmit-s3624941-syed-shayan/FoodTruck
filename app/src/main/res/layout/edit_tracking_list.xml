@@ -11,51 +11,57 @@
         android:id="@+id/edittrackableTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Curry Truck" />
+        android:text="@string/curry_truck" />
 
     <TextView
         android:id="@+id/edittrackablecategory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Asian"/>
+        android:text="@string/asian"/>
 
     <TextView
         android:id="@+id/edittrackabletime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="1:00:00 PM" />
+        android:text="@string/_1_00_00_pm" />
 
     <TextView
         android:id="@+id/edittrackablestoptime"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="10 min" />
+        android:text="@string/_10_min" />
+
+    <TextView
+        android:id="@+id/edittrackableTravelTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/_1_min" />
 
     <TextView
         android:id="@+id/edittrackableMT"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="1:00:00 PM" />
+        android:text="@string/_1_00_00_pm" />
 
     <TextView
         android:id="@+id/edittrackablelatitude"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="-37.8479"
+        android:text="@string/_37_8479"
         android:textStyle="bold|italic" />
 
     <TextView
         android:id="@+id/edittrackablelongitude"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="144.9554"
+        android:text="@string/_144_9554"
         android:textStyle="bold|italic" />
 
     <Button
         android:id="@+id/removebutton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Remove"
+        android:text="@string/remove"
         />
 
 </LinearLayout>

@@ -1,29 +1,76 @@
 package Storage;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.TextView;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+import android.util.SparseArray;
 import android.widget.Toast;
 
-import com.tutelab.haseebpaul.mada1.R;
-
 import java.util.ArrayList;
+
+import HttpHelper.RequestAsync;
+import Models.DistNDurationModel;
 import Models.SelectedTrackingModel;
+import Scheduling.MyAlarmManager;
 
 public class MyTrackingStorage {
 
 
 
     private static ArrayList<SelectedTrackingModel> myList;
+    private static SparseArray<DistNDurationModel> travelTimes;
 
 
 
-    public void addTracking(Context context, SelectedTrackingModel myModel) {
+    public static void addTracking(Context context, SelectedTrackingModel myModel) {
         if (myList == null)
             myList = new ArrayList();
+
+        if (travelTimes == null)
+            travelTimes = new SparseArray<>();
+
         myList.add(myModel);
+        setTravelTime(context, myModel);
+
+    }
+
+    private static void setTravelTime(Context context,SelectedTrackingModel stm)
+    {
+        new Thread(){
+            public void run(){
+
+                System.out.println("---------------------------");
+
+        RequestAsync getReq = new RequestAsync();
+        try {
+            String params = stm.getTrackingDetail().getLatitude() + "," + stm.getTrackingDetail().getLongitude();
+            ArrayList<DistNDurationModel> suggestionTrackings = getReq.execute(params).get();
+
+            travelTimes.put(stm.getSelectionId(),suggestionTrackings.get(0));
+
+            String time = stm.getMeetupTime();
+            String[] HM = time.split(":");
+            String mins = HM[1].replaceAll("[^\\d.]", "");
+            SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+            int suggInterval = Integer.parseInt(sharedPrefs.getString("notificationPeriod", "60"));
+            int interval = suggInterval/60;
+
+
+            int travelMins = suggestionTrackings.get(0).getDurationVal()/60;
+            int sendMins = Integer.parseInt(mins) - travelMins - interval;
+            int sendHrs = Integer.parseInt(HM[0]);
+            if(sendMins < 0){
+                sendHrs--;
+                sendMins += 60;
+            }
+            if(sendHrs == 0){sendHrs=12;}
+            MyAlarmManager.setAlarm(context, sendHrs,sendMins);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+            }
+        }.start();
     }
 
     public static void removeTracking(Context context, SelectedTrackingModel myModel) {
@@ -71,6 +118,13 @@ public class MyTrackingStorage {
 
     public static void setMyList(ArrayList<SelectedTrackingModel> myList) {
         MyTrackingStorage.myList = myList;
+    }
+
+    public static int getTravelTimeforId(int id)
+    {
+        int res = 99;
+        res = travelTimes.get(id).getDurationVal();
+        return res;
     }
 
 

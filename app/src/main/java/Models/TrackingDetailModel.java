@@ -39,6 +39,11 @@ public class TrackingDetailModel {
         return trackableId;
     }
 
+
+    public String getTrackableIdAsString() {
+        return String.valueOf(trackableId);
+    }
+
     public void setTrackableId(int trackableId) {
         this.trackableId = trackableId;
     }

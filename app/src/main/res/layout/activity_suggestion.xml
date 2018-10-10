@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SuggestionActivity">
+
+    <LinearLayout
+        android:layout_width="368dp"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <TextView
+            android:id="@+id/sTrkbleId"
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:text="@string/dots"
+            android:textColor="@color/black" />
+
+
+        <TextView
+            android:id="@+id/sTrkbleDur"
+            android:layout_width="match_parent"
+            android:layout_height="31dp"
+            android:text="@string/dots"
+            android:textColor="@color/black" />
+
+
+        <TextView
+            android:id="@+id/sTrkbleStp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="@string/dots"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/sTrkblemtp"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:text="@string/dots"
+            android:textColor="@color/black" />
+
+        <Button
+            android:id="@+id/NxtBtn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/next" />
+
+
+        <Button
+            android:id="@+id/CnclBtn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/cancel" />
+
+        <Button
+            android:id="@+id/AddBtn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/add" />
+    </LinearLayout>
+</RelativeLayout>

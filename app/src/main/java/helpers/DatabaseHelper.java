@@ -8,11 +8,13 @@ import android.util.Log;
 
 import java.io.File;
 import java.util.ArrayList;
+
+import Models.SelectedTrackingModel;
 import Models.TrackableDataModel;
 import Models.TrackingDetailModel;
-import Models.SelectedTrackingModel;
-import Services.TrackingService;
 import Services.TrackableService;
+import Services.TrackingService;
+
 import static android.content.ContentValues.TAG;
 
 public class DatabaseHelper extends SQLiteOpenHelper {

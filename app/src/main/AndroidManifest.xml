@@ -7,7 +7,12 @@
          Google Maps Android API v2, but you must specify either coarse or fine
          location permissions for the 'MyLocation' functionality. 
     -->
+
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
         android:allowBackup="true"
@@ -30,6 +35,26 @@
         <activity android:name=".EditTrackingActivity" />
 
         <receiver android:name="Recievers.NotificationActionReceiver" />
+        <receiver android:name="Recievers.TimeSetReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.TIME_SET" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="Recievers.NetworkReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+            </intent-filter>
+        </receiver>
+        <receiver android:name="Recievers.NotificationReciever" />
+
+        <service
+            android:name="Scheduling.SuggestionJobService"
+            android:label="Word service"
+            android:permission="android.permission.BIND_JOB_SERVICE"></service>
+        <service
+            android:name="Scheduling.NetworkSchedulerService"
+            android:exported="true"
+            android:permission="android.permission.BIND_JOB_SERVICE" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -49,6 +74,8 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.tutelab.haseebpaul.mada1.MainMenuActivity" />
         </activity>
+        <activity android:name=".SuggestionActivity" />
+        <activity android:name=".SettingsActivity"></activity>
     </application>
 
 </manifest>

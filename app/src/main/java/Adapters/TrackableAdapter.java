@@ -8,10 +8,12 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.tutelab.haseebpaul.mada1.MapsActivity;
 import com.tutelab.haseebpaul.mada1.R;
 import com.tutelab.haseebpaul.mada1.trackingDetailsActivity;
 
@@ -72,6 +74,16 @@ public class TrackableAdapter extends RecyclerView.Adapter<TrackableAdapter.MyVi
                 ctx.startActivity(detailIntent);
             }
         });
+
+        holder.showMapIdBtn.setOnClickListener(new View.OnClickListener() {
+
+            public void onClick(View view)
+            {
+                Intent mapIntent = new Intent(ctx, MapsActivity.class);
+                mapIntent.putExtra("trackableId", obj.getId());
+                ctx.startActivity(mapIntent);
+            }
+        });
     }
 
     @Override
@@ -82,6 +94,7 @@ public class TrackableAdapter extends RecyclerView.Adapter<TrackableAdapter.MyVi
     public class MyViewHolder extends RecyclerView.ViewHolder{
 
         TextView title,description,link,category;
+        Button showMapIdBtn;
         LinearLayout trackableObj;
 
         public MyViewHolder(View itemView) {
@@ -92,6 +105,7 @@ public class TrackableAdapter extends RecyclerView.Adapter<TrackableAdapter.MyVi
             description = itemView.findViewById(R.id.description);
             link = itemView.findViewById(R.id.link);
             category = itemView.findViewById(R.id.category);
+            showMapIdBtn = itemView.findViewById(R.id.showMapIdBtn);
         }
     }
 }
